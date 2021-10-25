@@ -1,0 +1,10 @@
+# MacOS
+.DS_Store
+
+# Generated
+build
+node_modules
+target
+Cargo.lock
+package-lock.json
+*.log
