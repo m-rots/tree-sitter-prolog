@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-prolog",
   "version": "0.20.0",
-  "description": "Prolog grammer for tree-sitter",
+  "description": "Prolog grammar for tree-sitter",
   "repository": "https://github.com/m-rots/tree-sitter-prolog",
   "main": "bindings/node",
   "keywords": [

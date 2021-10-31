@@ -1,18 +1,30 @@
 ; (dict_pair
 ;     key: (atom) @property)
 
-(fact
+(query
+    "?-" @operator
+    "." @operator)
+
+(fact_definition
     ; Only give the function markup when parameters are given.
     name: (atom) @function
     parameters: (parameters))
 
-(fact
+(fact_definition
     "." @operator)
+
+(fact
+    name: ((atom) @function.builtin
+        (#is-not? local))
+    parameters: (parameters))
+
+(fact
+    name: (atom) @function
+    parameters: (parameters))
 
 (rule
     name: (atom) @function
-    ":-" @operator
-    "." @operator)
+    parameters: (parameters))
 
 (atom) @constant
 (variable) @type

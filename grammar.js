@@ -12,17 +12,27 @@ module.exports = grammar({
     ],
 
     rules: {
-        source_file: $ => repeat($._definition),
+        source_file: $ => repeat(choice(
+            $._definition,
+            $.query,
+        )),
 
         _definition: $ => choice(
-            alias($._fact_definition, $.fact),
+            $.fact_definition,
             $.rule,
         ),
 
         // Top-level facts must have atoms as identifier.
-        _fact_definition: $ => seq(
+        fact_definition: $ => seq(
             field("name", $.atom),
             optional(field("parameters", $.parameters)),
+            "."
+        ),
+
+        query: $ => seq(
+            "?-",
+            $._definition,
+            $._expression,
             "."
         ),
 
