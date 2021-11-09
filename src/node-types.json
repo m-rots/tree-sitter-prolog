@@ -800,6 +800,76 @@
   {
     "type": "query",
     "named": true,
+    "fields": {
+      "query": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "dictionary",
+            "named": true
+          },
+          {
+            "type": "fact",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "negated_expression",
+            "named": true
+          },
+          {
+            "type": "numeric_assignment_expression",
+            "named": true
+          },
+          {
+            "type": "numeric_comparison_expression",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "results": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "query_results",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "query_results",
+    "named": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -815,10 +885,6 @@
         },
         {
           "type": "fact",
-          "named": true
-        },
-        {
-          "type": "fact_definition",
           "named": true
         },
         {
@@ -843,10 +909,6 @@
         },
         {
           "type": "parenthesized_expression",
-          "named": true
-        },
-        {
-          "type": "rule",
           "named": true
         },
         {

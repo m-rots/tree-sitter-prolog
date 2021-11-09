@@ -8,7 +8,8 @@
 (fact_definition
     ; Only give the function markup when parameters are given.
     name: (atom) @function
-    parameters: (parameters))
+    parameters: (parameters)
+    "." @operator)
 
 (fact_definition
     "." @operator)
@@ -24,7 +25,8 @@
 
 (rule
     name: (atom) @function
-    parameters: (parameters))
+    parameters: (parameters)
+    "." @operator)
 
 (atom) @constant
 (variable) @type
@@ -49,6 +51,7 @@
 
 [
     "is"
+    ":-"
 ] @operator
 
 (binary_expression [

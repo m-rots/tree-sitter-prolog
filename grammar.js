@@ -31,10 +31,13 @@ module.exports = grammar({
 
         query: $ => seq(
             "?-",
-            $._definition,
-            $._expression,
+            field("query", sepBy1(",", $._expression)),
+            ".",
+            field("results", $.query_results),
             "."
         ),
+
+        query_results: $ => sepBy1(",", $._expression),
 
         // Non-top-level facts can have variables as identifier too.
         fact: $ => seq(
@@ -183,8 +186,12 @@ module.exports = grammar({
 
         _quoted_atom: $ => seq(
             "'",
-            /[_\p{XID_Start}][_\p{XID_Continue}]*/,
-            "'"
+            $._unescaped_single_string_fragment,
+            "'",
+        ),
+
+        _unescaped_single_string_fragment: $ => token.immediate(
+            prec(1, /[^'\\]+/)
         ),
 
         // Comments
