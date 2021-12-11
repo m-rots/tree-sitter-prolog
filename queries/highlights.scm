@@ -43,6 +43,7 @@
 "[" @punctuation.bracket
 "]" @punctuation.bracket
 
+";" @punctuation.delimiter
 "," @punctuation.delimiter
 "." @punctuation.delimiter
 
@@ -56,4 +57,5 @@
 
 (binary_expression [
     "="
+    "|"
 ] @operator)
